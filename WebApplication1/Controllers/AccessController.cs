@@ -12,12 +12,14 @@ namespace WebApplication1.Controllers
     {
         public IActionResult Login()
         {
+            
             ClaimsPrincipal claimUser = HttpContext.User;
             
             if(claimUser.Identity.IsAuthenticated)
-                return RedirectToAction("Index","Home");  
+                return RedirectToAction("Index","Home");
+            
+            return View();
 
-            return View("Login");
         }
 
         [HttpPost]
