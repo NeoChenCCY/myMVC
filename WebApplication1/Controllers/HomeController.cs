@@ -26,13 +26,19 @@ namespace WebApplication1.Controllers
 
         public IActionResult Privacy()
         {
-            return RedirectToAction("Login", "Access");
+            ClaimsPrincipal claimUser = HttpContext.User;
+
+            if (claimUser.Identity.IsAuthenticated)
+                return View();
+
+           return RedirectToAction("Login", "Access");
         }
 
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Home");
+            //return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Access");
 
         }
 

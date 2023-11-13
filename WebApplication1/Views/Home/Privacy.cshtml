@@ -1,8 +1,57 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
 
-<b>vue.js 網站建構中......</b>
+<p>vue.js 網站建構中......</p>
+
+<div id="app">
+<h1>房間的資料</h1>
+<h2>名稱 {{ roomdata.name }}</h2>
+<h2>價錢 {{ roomdata.price }}</h2>
+    <!--<h3>最後的價錢{{ final_price }}</h3>-->
+</div>
+
+
+<script>
+  var roomdata = {
+    "name": "經濟雙人房",
+    "eng": "Economy Double Room",
+    "price": 7000,
+    "amount": 0,
+    "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(1).jpg",
+    "discount": 0.9,
+    "equipment": {
+      "wifi": false,
+      "bathtub": true,
+      "breakfast": true
+    }
+  };
+
+
+
+  new Vue({
+    el: "#app",
+    data: {
+      roomdata: {
+         name: "經濟雙人房",
+         eng: "Economy Double Room",
+         price: 7000,
+         amount: 0,
+         cover: "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(1).jpg",
+         discount: 0.9,
+         equipment: {
+         wifi: false,
+         bathtub: true,
+         breakfast: true
+         }
+      }
+    }
+        //computed: { final_price: (){ return this.roomdata.price * this.roomdata.discount; } }
+    });
+</script>
