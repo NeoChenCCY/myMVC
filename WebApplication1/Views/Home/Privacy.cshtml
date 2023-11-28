@@ -14,7 +14,7 @@
 <h1>房間的資料</h1>
 <h2>名稱 {{ roomdata.name }}</h2>
 <h2>價錢 {{ roomdata.price }}</h2>
-    <!--<h3>最後的價錢{{ final_price }}</h3>-->
+<h2>最後的價錢{{ final_price }}</h2>
 </div>
 
 
@@ -51,7 +51,7 @@
          breakfast: true
          }
       }
-    }
-        //computed: { final_price: (){ return this.roomdata.price * this.roomdata.discount; } }
+    },
+    computed: { final_price: function () { return this.roomdata.price * this.roomdata.discount; } }
     });
 </script>
