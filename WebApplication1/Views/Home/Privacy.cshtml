@@ -15,6 +15,15 @@
 <h2>名稱 {{ roomdata.name }}</h2>
 <h2>價錢 {{ roomdata.price }}</h2>
 <h2>最後的價錢{{ final_price }}</h2>
+
+
+<h1>房間列表</h1>
+<ul>
+	<li v-for ="room in rooms">{{ room.name }}</li>
+</ul>
+
+
+
 </div>
 
 
@@ -33,11 +42,19 @@
     }
   };
 
-
+  data: {
+     
+  }
 
   new Vue({
     el: "#app",
     data: {
+      rooms: [
+                { name: "room1" },
+                { name: "room2" },
+                { name: "room3" }
+      ],
+
       roomdata: {
          name: "經濟雙人房",
          eng: "Economy Double Room",
