@@ -2,6 +2,21 @@
     ViewData["Title"] = "Privacy Policy";
 }
 
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    .selector-for-some-widget {
+    box-sizing: content-box;
+    }
+
+
+
+</head>
+
+<body>
+
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <h1>@ViewData["Title"]</h1>
@@ -11,41 +26,167 @@
 <p>vue.js 網站建構中......</p>
 
 <div id="app">
-<h1>房間的資料</h1>
-<h2>名稱 {{ roomdata.name }}</h2>
-<h2>價錢 {{ roomdata.price }}</h2>
-<h2>最後的價錢{{ final_price }}</h2>
+    <h1>房間的資料</h1>
+    <h2>名稱 {{ roomdata.name }}</h2>
+    <h2>價錢 {{ roomdata.price }}</h2>
+    <h2>最後的價錢{{ final_price }}</h2>
 
 
-<h1>房間列表</h1>
-<ul>
-	<li v-for ="room in rooms">{{ room.name }}</li>
-</ul>
+    <h1>房間列表</h1>
+    <ul>
+	    <li v-for ="room in rooms">{{ room.name }}</li>
+        <li v-for="myroom in roomsdatas">
+            <h3>{{ myroom.name }}</h3>
+            <info><h5>{{ myroom.eng }}</h5></info>
+        </li>
+    </ul>
 
+    <div class="container">
+        <div class="row col-sm-9">
+            123456789
+        </div>
 
+            <div class="row col-sm-4" v-for="myroom in roomsdatas">
+            <h3> {{ myroom.name }}</h3>
+            <info><h5>{{ myroom.eng }}</h5></info>
+        </div>
+
+    </div>
 
 </div>
 
 
+    
+
+
+    
+
+
 <script>
-  var roomdata = {
-    "name": "經濟雙人房",
-    "eng": "Economy Double Room",
-    "price": 7000,
-    "amount": 0,
-    "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(1).jpg",
-    "discount": 0.9,
-    "equipment": {
-      "wifi": false,
-      "bathtub": true,
-      "breakfast": true
-    }
-  };
 
-  data: {
-     
-  }
+var roomdata = {
+"name": "經濟雙人房",
+"eng": "Economy Double Room",
+"price": 7000,
+"amount": 0,
+"cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(1).jpg",
+"discount": 0.9,
+"equipment": {
+    "wifi": false,
+    "bathtub": true,
+    "breakfast": true
+}
+};
 
+  /*
+    // JavaScript
+    var roomsdatas = [
+        {
+            "name": "經濟雙人房",
+            "eng": "Economy Double Room",
+            "price": 7000,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(1).jpg",
+            "discount": 0.9,
+            "equipment": {
+                "wifi": false,
+                "bathtub": true,
+                "breakfast": true
+            }
+        },
+        {
+            "name": "海景三人房",
+            "eng": "Sea view triple Room",
+            "price": 7800,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(2).jpg",
+            "discount": 0.8,
+            "equipment": {
+                "wifi": true,
+                "bathtub": true,
+                "breakfast": false
+            }
+        },
+        {
+            "name": "典雅景觀房",
+            "eng": "Elegant landscape Room",
+            "price": 5400,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(3).jpg",
+            "discount": 0.85,
+            "equipment": {
+                "wifi": false,
+                "bathtub": true,
+                "breakfast": true
+            }
+        },
+        {
+            "name": "尊享豪華房",
+            "eng": "Exclusive Deluxe Room",
+            "price": 9800,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(4).jpg",
+            "discount": 0.8,
+            "equipment": {
+                "wifi": true,
+                "bathtub": false,
+                "breakfast": true
+            }
+        },
+        {
+            "name": "商務雙人房",
+            "eng": "Business Double Room",
+            "price": 5600,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room (5).jpg",
+            "discount": 0.9,
+            "equipment": {
+                "wifi": true,
+                "bathtub": false,
+                "breakfast": false
+            }
+        },
+        {
+            "name": "溫泉雙人房",
+            "eng": "Hot spring double Room",
+            "price": 8400,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room (6).jpg",
+            "discount": 0.6,
+            "equipment": {
+                "wifi": true,
+                "bathtub": true,
+                "breakfast": true
+            }
+        },
+        {
+            "name": "總統套房",
+            "eng": "Presidential Suite",
+            "price": 23000,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room (7).jpg",
+            "discount": 0.75,
+            "equipment": {
+                "wifi": true,
+                "bathtub": true,
+                "breakfast": true
+            }
+        },
+        {
+            "name": "奢華四人房",
+            "eng": "Luxury four Room",
+            "price": 8500,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room (8).jpg",
+            "discount": 0.7,
+            "equipment": {
+                "wifi": true,
+                "bathtub": true,
+                "breakfast": false
+            }
+        }
+    ];
+    */
   new Vue({
     el: "#app",
     data: {
@@ -55,20 +196,135 @@
                 { name: "room3" }
       ],
 
+      roomsdatas: [
+        {
+            "name": "經濟雙人房",
+            "eng": "Economy Double Room",
+            "price": 7000,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(1).jpg",
+            "discount": 0.9,
+            "equipment": {
+                "wifi": false,
+                "bathtub": true,
+                "breakfast": true
+            }
+        },
+        {
+            "name": "海景三人房",
+            "eng": "Sea view triple Room",
+            "price": 7800,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(2).jpg",
+            "discount": 0.8,
+            "equipment": {
+                "wifi": true,
+                "bathtub": true,
+                "breakfast": false
+            }
+        },
+        {
+            "name": "典雅景觀房",
+            "eng": "Elegant landscape Room",
+            "price": 5400,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(3).jpg",
+            "discount": 0.85,
+            "equipment": {
+                "wifi": false,
+                "bathtub": true,
+                "breakfast": true
+            }
+        },
+        {
+            "name": "尊享豪華房",
+            "eng": "Exclusive Deluxe Room",
+            "price": 9800,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(4).jpg",
+            "discount": 0.8,
+            "equipment": {
+                "wifi": true,
+                "bathtub": false,
+                "breakfast": true
+            }
+        },
+        {
+            "name": "商務雙人房",
+            "eng": "Business Double Room",
+            "price": 5600,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room (5).jpg",
+            "discount": 0.9,
+            "equipment": {
+                "wifi": true,
+                "bathtub": false,
+                "breakfast": false
+            }
+        },
+        {
+            "name": "溫泉雙人房",
+            "eng": "Hot spring double Room",
+            "price": 8400,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room (6).jpg",
+            "discount": 0.6,
+            "equipment": {
+                "wifi": true,
+                "bathtub": true,
+                "breakfast": true
+            }
+        },
+        {
+            "name": "總統套房",
+            "eng": "Presidential Suite",
+            "price": 23000,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room (7).jpg",
+            "discount": 0.75,
+            "equipment": {
+                "wifi": true,
+                "bathtub": true,
+                "breakfast": true
+            }
+        },
+        {
+            "name": "奢華四人房",
+            "eng": "Luxury four Room",
+            "price": 8500,
+            "amount": 0,
+            "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room (8).jpg",
+            "discount": 0.7,
+            "equipment": {
+                "wifi": true,
+                "bathtub": true,
+                "breakfast": false
+            }
+        }
+      ],
+
+
+
       roomdata: {
-         name: "經濟雙人房",
-         eng: "Economy Double Room",
-         price: 7000,
-         amount: 0,
-         cover: "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(1).jpg",
-         discount: 0.9,
-         equipment: {
-         wifi: false,
-         bathtub: true,
-         breakfast: true
+         "name": "經濟雙人房",
+         "eng": "Economy Double Room",
+         "price": 7000,
+         "amount": 0,
+         "cover": "http://bosscode.monoame.com/20170323_vue_comp/img/room%20(1).jpg",
+         "discount": 0.9,
+         "equipment": {
+         "wifi": false,
+         "bathtub": true,
+         "breakfast": true
          }
       }
     },
     computed: { final_price: function () { return this.roomdata.price * this.roomdata.discount; } }
     });
-</script>
+	</script>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+
+</body>
